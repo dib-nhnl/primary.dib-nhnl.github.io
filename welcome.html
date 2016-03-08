@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>导航页面</title>
+	<style>
+	/*初始化CSS样式*/
+	*{margin: 0; padding: 0;}
+	/*兼容性问题：设置html的height*/
+	html {height: 100%;}
+	/*将首页截图作为背景图，
+	兼容性问题：补充设置height*/
+	/*body{background: url(images/body.png) center top; height: 100%;}*/
+	/*设置幕布的CSS，绝对定位以及大小
+	兼容性问题：filter是给ie8以下版本准备的。 */
+	#mask{height: 100%; width: 100%; position: absolute; top: 0; left: 0; background: #000; opacity: 0.5; filter: alpha(opacity=50); display: none;}
+	/*定位副块的设置，脱离文档流，覆盖在有效区域上面，所以也是绝对定位，并根据有效区域大小来设定width。位置设定居中，这注意设定的技巧。*/
+	#searchTip{width: 980px; height: 800px; /*background: #CCC;*/ position: absolute; left: 50%; margin-left: -490px; /*display: none;*/}
+	/*接下来来去定位副块里的小单元，这次直接通过绝对定位来设定位置*/
+	#searchTip div{position: absolute; /*display: none;*/}
+	/*副块里小单元的a标签也是绝对定位;
+	内部文字给一个很大的负位移并且隐藏溢出的文字;
+	设定鼠标经过时为手型；(值pointer浏览器都是通用的，表现为手型)
+	至于位置，在各step那里设置，可以先设置一大概，后到浏览器里通过dev-tool选中元素观察对比，选择一个适合的位置；
+	可以先取消副块的颜色，小单元设定一背景色#CCC方便之后寻找位置*/
+	#searchTip div a{position: absolute; width: 95px; height: 32px; /*background: #CCC;*/ text-indent: -999px; overflow: hidden; cursor: pointer;}
+	/*同上，小单元里的span也要设置下，注意背景色先弄个别的比如#9CC*/
+	#searchTip div span{position: absolute; width: 30px; height: 30px; /*background: #9CC;*/ text-indent: -999px; overflow: hidden; cursor: pointer;}
+	/*副块里的小单元的背景图的宽和高取图片的大小就可以了，注意不可用百分比，那不是图片的百分比！*/
+	.stepA{ background:url(images/welcome001.jpg); height:180px; width:180px; top:130px; left:-9px; display: block;}
+	.stepA a{top: 231px; left: 490px;}
+	.stepA span{top: 100px; left: 170px;}
+	.stepB{}
+	
+	.stepC{}
+	
+	.stepD{}
+	
+	.stepE{}
+	</style>
+</head>
+<body>
+	<!-- 半透明的幕布 -->
+	<div id="mask"></div>
+	<!-- 引导区 -->
+	<div id="searchTip">
+		<div class="stepA"><a>下一步</a><span title="关闭">关闭</span></div>
+		<div class="stepB"><a>下一步</a><span title="关闭">关闭</span></div>
+		<div class="stepC"><a>下一步</a><span title="关闭">关闭</span></div>
+		<div class="stepD"><a>下一步</a><span title="关闭">关闭</span></div>
+		<div class="stepE"><a>下一步</a></div>
+	</div>
+</body>
+</html>
