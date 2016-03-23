@@ -2,13 +2,39 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Login</title>
 	<script type="text/javascript" src="js/jquery-1.12.1.js"></script>
 	<style type="text/css">
 		*{margin: 0; padding: 0;}
+		body{
+			background: url(images/bg_login.jpg);
+			
+		}
+
 		#wrap{ position: fixed; left: 50%; top: 50%; }
-		#divLogin{margin-left: -50%; margin-top: -50%;}
-		.titleLogin{ margin-bottom: 1em; }
+		#divLogin{
+			position: relative;
+			margin-left: -50%; 
+			margin-top: -50%;
+			width: 300px;
+			height: 300px;
+			border-radius: 300px;
+			border: 1px solid #ccc;
+			box-shadow: -2px -2px 4px #fff;
+		}
+		.titleLogin{
+			position: absolute;
+			left: 45px;
+			top: 80px;
+		}
+		.content{
+			position: absolute;
+			left: 50px;
+			top: 130px;
+		}
+		.fontS{
+			color: white;
+		}
 		.btnCenter{margin-top: 1em;}
 		.divMsg{display: hidden;}
 	</style>
@@ -19,10 +45,10 @@
 <body>
 	<div id="wrap">
 	<div id="divLogin">
-		<h3 class="titleLogin" style="text-indent: 3.5em;">用户登录</h3>
+		<h3 class="titleLogin" style="text-indent: 3.5em;"><span class="fontS">用户登录</span></h3>
 		<div class="content">
-			<div>用户：<input id="txtName" type="text" class="txt" value="" /></div>
-			<div>密码：<input id="txtPass" type="password" class="txt" value="" /></div>
+			<div><span class="fontS">用户：</span><input id="txtName" type="text" class="txt" value="" /></div>
+			<div><span class="fontS">密码：</span><input id="txtPass" type="password" class="txt" value="" /></div>
 			<div class="btnCenter">
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<input id="Button1" class="btn" type="button" value="登录" />
