@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="wrap">
-		<ol></ol>
+		<ol id="oL"></ol>
 	</div>
 <script type="text/javascript">
 	var contentData = [
@@ -17,6 +17,28 @@
 		],
 		[],
 	];
+	for (var i = 0, i < contentData.length i++) {
+		var docForm = "";
+		var items = data[i];
+		for (var j = 0, j < items.length, j++){
+			var urls = items[j];
+			if (j == 0) {
+				sub += "<li><h2><a href='javascript:;' title='" + urls.title + "''>" + url.title + "</a></h2><dl class='sub'>";
+			} else if (j == items.length - 1) {
+				sub += "</dl></li>";
+			} else {
+				sub += "<dd><a href='" + urls.url + " target='_blank' title='" + urls.title + "'>" + url.title + "</a></dd>";
+			}
+		}
+		docForm += sub;
+	}
+	var oL = document.getElementById('oL');
+	oL.innerHTML = docForm;
+	var oH2 = document.getElementsByTagname('h2');
+	var oDl = document.getElementsByTagname('dl');
+	for (var i = 0; i < oH2.length; i++) {
+	 	oH2[i]
+	 } 
 </script>
 </body>
 </html>
