@@ -8,6 +8,76 @@ body{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
-
+	font-size: 20px;
 }
 
+.wrap{
+	width: 400px;
+	margin: 20px auto auto;
+	border: 1px solid rgba(255,255,255,0.2);
+	border-radius: 9px;
+	box-shadow: 3px 4px 2px 3px rgba(0,0,0,0.5);
+}
+.welcome{
+	width: 400px;
+	margin: 5px auto auto;
+	text-align: center;
+	font-size: 0.8em;
+	color: white;
+	text-shadow: 2px 2px 2px #000;
+}
+.uL{
+	display: block;
+	margin: 10px 20px 10px 20px;
+	list-style: none;
+}
+.uL li{
+	margin: 10px;
+}
+.uL li h2{
+	line-height: 50px;
+	height: 50px;
+}
+
+.sub{
+	display: none;
+}
+a{
+	text-decoration: none;
+	color: rgba(223,223,223,0.8);
+	display: block;
+	margin:0 0 5px 0;	
+}
+a:focus{
+	outline: none;
+}
+h2 a{
+	border-radius: 15px;
+	transition: all 1s ease 0s;
+}
+h2 a:hover{		
+	background: -webkit-linear-gradient(rgba(5,23,37,0.8),rgba(5,23,37,0.2),rgba(5,23,37,0.8)); 
+	background: -o-linear-gradient(rgba(5,23,37,0.8),rgba(5,23,37,0.2),rgba(5,23,37,0.8)); 
+	background: -moz-linear-gradient(rgba(5,23,37,0.8),rgba(5,23,37,0.2),rgba(5,23,37,0.8)); 
+	background: linear-gradient(rgba(5,23,37,0.8),rgba(5,23,37,0.2),rgba(5,23,37,0.8)); 
+	/*background-color: rgba(5,23,37,0.4);*/
+	text-indent: 1em;
+	color: rgba(235,198,101,1);
+	box-shadow: 1px 1px 3px 1px black;
+}
+.uL li dl dd{
+	line-height: 30px;
+	height: 30px;
+	border-bottom:1px solid #ccc;
+	text-indent: 0.5em;
+}
+.uL li dl dd a{
+	transition: all 0.6s ease 0s;
+}
+.uL li dl dd a:hover{
+	color: rgba(254,242,209,1);
+	font-weight: bold;
+	text-indent: 1em;
+	text-shadow: 1px 2px 2px #ccc;
+	text-shadow: -1px -1px 2px #ccc;
+}
