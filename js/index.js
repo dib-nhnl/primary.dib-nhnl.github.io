@@ -1,13 +1,13 @@
 var contentData = [
 	[
-		{title: '第一房间'},
-		{title: '逃跑的你', url: ''},
-		{title: '忧伤的你', url: ''},
-		{title: '无奈的你', url: ''},		
+		{title: 'GAME'},
+		{title: '不安分的球', url: 'game/ball.html'},		
 	],
 	[
 		{title: '第二房间'},
 		{title: '崩溃的你', url: ''},
+		{title: '忧伤的你', url: ''},
+		{title: '无奈的你', url: ''},
 	],
 	[
 		{title: '第三房间'},
@@ -23,7 +23,7 @@ for (var i = 0; i < contentData.length; i++) {
 		if (j == 0) {
 			sub += "<li><h2><a href='javascript:;' title='" + urls.title + "''>" + urls.title + "</a></h2><dl class='sub'>";
 		}  else {
-			sub += "<dd><a href='" + urls.url + " target='_blank' title='" + urls.title + "'>" + urls.title + "</a></dd>";
+			sub += '<dd><a href="' + urls.url + '" target="_blank" title="' +urls.title + '">' +urls.title + '</a></dd>';
 		}
 		if (j == items.length - 1) {
 			sub += "</dl></li>";

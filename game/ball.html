@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标追球的故事</title>
+</head>
+<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	
+	body {
+		/*background-color: black;*/
+		background-image: url(../images/ball_bg.jpg);
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-attachment: fixed;
+	}
+
+	#wrap{
+		background-color: transparent;
+		width: 200px;
+		height: 200px;
+		border-radius: 100px;
+		position: relative;
+		left: 40%;
+		top: 70%;
+		transition: all 1.5s ease-in-out 0s;
+	}
+
+	#ball{
+		background: -webkit-radial-gradient(circle,rgba(15,23,37,0.3),rgba(15,23,37,0.8)); 
+		background: -o-radial-gradient(circle,rgba(15,23,37,0.3),rgba(15,23,37,0.8)); 
+		background: -moz-radial-gradient(circle,rgba(15,23,37,0.3),rgba(15,23,37,0.8)); 
+		background: radial-gradient(circle,rgba(15,23,37,0.3),rgba(15,23,37,0.8)); 
+		background-color: rgba(255,255,255,0.9);	
+		width: 60px;
+		height: 60px;	
+		border-radius: 40px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin-left: -30px;
+		margin-top: -30px;
+		box-shadow: 0 0 8px 3px rgba(255,255,255,1);
+		border: 1px solid rgba(255,255,255,0.8);
+		cursor: pointer;
+	}
+
+	.ballhover{
+		background-color: rgba(255,255,255,1)!important;	
+		box-shadow: 0 0 15px 9px rgba(255,255,255,1)!important;
+	}
+	
+</style>
+<body>
+	<div id="wrap">
+		<div id="ball"></div>
+	</div>
+	<script type="text/javascript">
+		var bperiod,
+			w = document.getElementById("wrap"),
+			ball = document.getElementById("ball"),
+			winW = document.documentElement.clientWidth||document.body.clientWidth,
+			winH = document.documentElement.clientHeight||document.body.clientHeight;
+		
+		window.onload = fool;
+
+		function fool() {
+			setTimeout(escape,500);
+			ball.onmouseover = escape;
+			w.onmouseover = period;
+			w.onmouseout = quiet;
+			ball.onmouseout = quiet;
+		}
+
+		function escape() {
+			var maxW = winW - w.offsetWidth,
+				maxH = winH - w.offsetHeight,
+				wx = w.offsetLeft + (Math.random() * 2 - 1) * winW,
+			 	wy = w.offsetTop + (Math.random() * 2 - 1) * winH;
+			if (wx < 0) {
+				wx = 0;
+			} else if (wx > maxW ) {
+				wx = maxW;
+			}
+			if (wy < 0) {
+				wy = 0;
+			} else if (wy > maxH ) {
+				wy = maxH;
+			}
+			w.style.left = wx + "px";
+			w.style.top = wy + "px";
+			ball.setAttribute("class","ballhover");
+		}
+
+		function period() {
+			bperiod = setInterval(escape,500);
+		}
+
+		function quiet() {
+			ball.setAttribute("class","");
+			clearInterval(bperiod);
+		}
+	</script>
+</body>
+</html>
