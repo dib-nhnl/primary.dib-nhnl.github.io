@@ -4,3 +4,18 @@ body{
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+#txt{
+	height: 200px;
+	overflow: scroll;
+	border: 3px solid rgba(169,169,169,0.6);
+}
+#txt h2{
+	font-size: 3em;
+	border-bottom: 1px solid rgba(169,169,169,0.6);
+	color: rgba(0,100,100,0.7);
+	text-shadow: 0 0 1px white;
+}
+#txt p{
+	color: white;
+	text-shadow: 0 0 2px black;
+}
