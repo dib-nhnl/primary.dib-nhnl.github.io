@@ -85,7 +85,7 @@ img.smallpic{
 }
 #wrap .loading{
  	position: absolute;
- 	z-index: 4
+ 	z-index: 4;
  	display: none;
  	width: 500px;
  	height: 500px;
