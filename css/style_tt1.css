@@ -1,3 +1,4 @@
+/*如果你看到这些，说明你的浏览器没有打开支持javascript的功能，无法实现本次换肤*/
 body{
 	background-image: url("../images/bg1.jpg");
 	background-position: center center;
@@ -10,7 +11,7 @@ body{
 	border: 3px solid rgba(169,169,169,0.6);
 }
 #txt h2{
-	font-size: 3em;
+	font-size: 2em;
 	border-bottom: 1px solid rgba(169,169,169,0.6);
 	color: rgba(0,100,100,0.7);
 	text-shadow: 0 0 1px white;
