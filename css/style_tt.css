@@ -66,7 +66,10 @@ img.smallpic{
  	border-radius: 25px;
  	list-style: none;
  	overflow: hidden;
- 	float: right;
+ 	position: absolute;
+ 	right: 5px;
+ 	top: 5px;
+ 	overflow: hidden;
 }
 #wrap li{
  	display: block;
@@ -98,6 +101,19 @@ img.smallpic{
 	top: 0;
 	left: 0;
 	z-index: 9;
+}
+#wrap span{
+	padding: 3px;
+	font-size: 0.8em;
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	margin: auto 10px 5px auto;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	background: rgba(169,169,169,0.4);
+	overflow: hidden;
 }
 #txt{
 	float: left;

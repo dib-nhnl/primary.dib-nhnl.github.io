@@ -2,6 +2,20 @@ window.onload = function () {
 	overLay();
 	setOnclick();
 	preView();
+	var min = false;
+	var btn = document.getElementById('btn');
+	var ert = document.getElementsByTagName('li');
+	btn.onclick = function () {
+		if (!min){
+			min = true;
+			for (i = 0; i < ert.length; i++)
+			ert[i].style.display = 'none';
+		} else {
+			min = false;
+			for (i = 0; i < ert.length; i++)
+			ert[i].style.display = 'block';
+		}
+	}
 }
 //覆盖层
 function overLay() {
