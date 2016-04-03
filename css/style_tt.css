@@ -109,11 +109,11 @@ img.smallpic{
 	position: absolute;
 	bottom: 0;
 	right: 0;
-	margin: auto 10px 5px auto;
+	margin: 5px 10px 3px 10px;
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	background: rgba(169,169,169,0.4);
-	overflow: hidden;
+	clear: both;
 }
 #txt{
 	float: left;

@@ -2,20 +2,7 @@ window.onload = function () {
 	overLay();
 	setOnclick();
 	preView();
-	var min = false;
-	var btn = document.getElementById('btn');
-	var ert = document.getElementsByTagName('li');
-	btn.onclick = function () {
-		if (!min){
-			min = true;
-			for (i = 0; i < ert.length; i++)
-			ert[i].style.display = 'none';
-		} else {
-			min = false;
-			for (i = 0; i < ert.length; i++)
-			ert[i].style.display = 'block';
-		}
-	}
+	fold();
 }
 //覆盖层
 function overLay() {
@@ -60,5 +47,31 @@ function setOnclick() {
 	var oA = document.getElementsByTagName('a');
 	for (var i = 0; i < oA.length; i++) {
 		oA[i].setAttribute('onclick','skin(this);return false;');
+	}
+}
+//折叠按钮
+function fold() {
+	var min = false;
+	var w = document.getElementById('wrap');
+	var btn = document.getElementById('btn');
+	var ert = document.getElementsByTagName('li');
+	btn.onclick = function () {
+		if (!min){
+			min = true;
+			btn.innerHTML = '展开';
+			btn.style.color = 'white';
+			w.style.width = '50px';
+			w.style.height = '25px';
+			for (i = 0; i < ert.length; i++)
+			ert[i].style.display = 'none';
+		} else {
+			btn.style.color = 'black';
+			w.style.width = '600px';
+			w.style.height = 'auto';
+			btn.innerHTML = '收起';
+			min = false;
+			for (i = 0; i < ert.length; i++)
+			ert[i].style.display = 'block';
+		}
 	}
 }
