@@ -60,7 +60,7 @@ img.smallpic{
 }
 #wrap{
  	width: 600px;
- 	margin: 30px auto 0;
+ 	margin: 30px auto 0 auto;
  	padding: 5px;
  	border: 2px solid rgba(169,169,169,0.5);
  	border-radius: 25px;
@@ -114,6 +114,7 @@ img.smallpic{
 	border-radius: 10px;
 	background: rgba(169,169,169,0.4);
 	clear: both;
+	box-shadow: 0 0 5px 2px #0f0;
 }
 #txt{
 	float: left;

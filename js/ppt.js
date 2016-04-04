@@ -1,5 +1,5 @@
 window.onload = function () {
-//给body添加渐变色
+//给body添加渐变色，这里让body先有个高度，开发完毕后取消这些
 	var bH = document.body.clientHeight||document.documentElement.clientHeight;
 	var ob = document.body||document.documentElement;
 	ob.style.height = bH + 'px';
@@ -45,15 +45,11 @@ window.onload = function () {
 
 	//自动播放函数
 	function autoplay1() {
+		var autocount = index1;
 		timer1 = setInterval(function () {
-			var autocount = index1;
-			if (autocount == (oimg1.length - 1)) {
-				autocount = 0;
-				show1(autocount);
-			} else {
-				show1(autocount);
-				index1 += 1;
-			}
+			show1(autocount);
+			if (autocount == oimg1.length - 1) autocount = 0;
+			autocount ++;		
 		},4000);
 		// return timer1;
 	}

@@ -2,7 +2,7 @@ window.onload = function () {
 	overLay();
 	setOnclick();
 	preView();
-	fold();
+	fold();	
 }
 //覆盖层
 function overLay() {
@@ -34,8 +34,6 @@ function preView() {
 			var loadingPic = new Image();
 			loadingPic.src = imgPre.src = this.src.replace(/small/,"big");
 			divPre.style.display = 'block';
-			// var urlPre = this.src.replace(/small/,"big");
-			// imgPre.setAttribute('src', urlPre);
 			loadingPic.complete?divPre.style.display = 'none':(imgPre.onload = function () {
 				divPre.style.display = 'none';
 			});
