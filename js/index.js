@@ -6,7 +6,7 @@ var contentData = [
 	[
 		{title: '实例'},
 		{title: '覆盖预览和换肤', url: 'e/style_tt.html'},
-		{title: '忧伤的你', url: ''},
+		{title: '图片轮播', url: 'e/ppt.html'},
 		{title: '无奈的你', url: ''},
 	],
 	[
