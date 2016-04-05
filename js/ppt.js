@@ -9,18 +9,18 @@ window.onload = function () {
 	var oimg1 = oli1.getElementsByTagName('li');
 	var oc1 = document.getElementById('count1');
 	var on1 = oc1.getElementsByTagName('li');
-	var index1 = 0, ao1 = 0, timer1 = null, timer = null;
+	var index1 = 0, ao1 = 0, timer1 = null, timer = null, de1 = true;
 	//显示下标为n的图片
 	function show1(n) {
 		index1 = n;
 		for (var i = 0; i < on1.length; i++) {
 			on1[i].className = "";
 		}
+		clearInterval(timer);
 		for (var i = 0; i < oimg1.length; i++) {
 			oimg1[i].style.opacity = 0;
 			oimg1[i].style.filter = "alpha(opacity = 0)";
 		}
-		clearInterval(timer);
 		timer = setInterval(function () {
 			if(ao1 > 100) {
 				ao1 = 0;
@@ -47,11 +47,18 @@ window.onload = function () {
 	function autoplay1() {
 		var autocount = index1;
 		timer1 = setInterval(function () {
-			show1(autocount);
-			if (autocount == oimg1.length - 1) autocount = 0;
-			autocount ++;		
-		},4000);
-		// return timer1;
+			if (de1) {
+				show1(autocount);
+			} else {
+				autocount ++;
+				show1(autocount);
+				de1 = true;
+			}
+			if (autocount >= oimg1.length - 1) {
+				autocount = -1;
+			}
+			autocount ++;	
+		},3000);
 	}
 	// 图片框悬停停止自动播放
 	obox1.onmouseover = function () {
@@ -60,6 +67,7 @@ window.onload = function () {
 	// 鼠标移出图片范围重新自动播放
 	obox1.onmouseout = function () {
 		autoplay1();
+		de1 = false;
 	}
 	
 	//页面载入后直接运行自动播放
