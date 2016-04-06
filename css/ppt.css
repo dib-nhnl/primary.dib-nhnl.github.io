@@ -81,38 +81,39 @@ ul{
 	overflow: hidden;
 	box-shadow: 0 0 9px 3px rgba(30,30,0,0.5),0 0 15px rgba(20,60,20,0.2);
 }
-#lists2 .pf0,.pf4{
+
+#lists2 .pf0{
 	width: 200px;
 	height: 120px;
 	z-index: 8;
+	left: 0;
+	top: 20px;	
 }
-#lists2 .pf1,.pf3{
+#lists2 .pf1{
 	width: 250px;
 	height: 140px;
 	z-index: 9;
+	left: 50px;
+	top: 10px;
 }
 #lists2 .pf2{
 	width: 300px;
 	height: 160px;
 	z-index: 10;
-}
-#lists2 .pf0{
-	left: 0;
-	top: 20px;
-	
-}
-#lists2 .pf1{
-	left: 50px;
-	top: 10px;
-}
-#lists2 .pf2{
 	left: 100px;
+	top: 0;
 }
 #lists2 .pf3{
+	width: 250px;
+	height: 140px;
+	z-index: 9;
 	left: 200px;
 	top: 10px;
 }
 #lists2 .pf4{
+	width: 200px;
+	height: 120px;
+	z-index: 8;
 	left: 300px;
 	top: 20px;
 }
