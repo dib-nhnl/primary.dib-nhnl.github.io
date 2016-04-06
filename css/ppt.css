@@ -9,9 +9,9 @@ ul{
 	list-style: none;
 	overflow: hidden;
 }
+
 #box1{
-	position: absolute;
-	display: block;
+	position: relative;
 	border: 1px solid #ccc;
 	width: 500px;
 	height: 250px;
@@ -35,7 +35,7 @@ ul{
 	opacity: 0;
 	filter: alpha(opacity = 0);
 }
-#lists1 li img{
+/*#lists1 li */img{
 	width: 100%;
 	height: 100%;
 }
@@ -55,6 +55,85 @@ ul{
 	background: rgba(255,255,255,0.8);
 }
 #count1 li.current1{
+	background: rgba(134,111,145,0.8);
+	color: white;
+	text-shadow: 1px 1px 1px black, 0 -1px 1px black;
+}
+/*第二个*/
+#box2{
+	position: relative;
+	width: 500px;
+	height: 200px;
+	/*border: 1px solid #ccc;*/
+	border-radius: 10px;
+	/*overflow: hidden;*/
+	margin: 100px auto auto 15px;
+}
+#list2{
+	position: relative;
+}
+#lists2 li{
+	display: inline-block;
+	position: absolute;
+	margin: auto 0;
+	border: 1px solid rgba(55,55,10,0.7);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 0 9px 3px rgba(30,30,0,0.5),0 0 15px rgba(20,60,20,0.2);
+}
+#lists2 .pf0,.pf4{
+	width: 200px;
+	height: 120px;
+	z-index: 8;
+}
+#lists2 .pf1,.pf3{
+	width: 250px;
+	height: 140px;
+	z-index: 9;
+}
+#lists2 .pf2{
+	width: 300px;
+	height: 160px;
+	z-index: 10;
+}
+#lists2 .pf0{
+	left: 0;
+	top: 20px;
+	
+}
+#lists2 .pf1{
+	left: 50px;
+	top: 10px;
+}
+#lists2 .pf2{
+	left: 100px;
+}
+#lists2 .pf3{
+	left: 200px;
+	top: 10px;
+}
+#lists2 .pf4{
+	left: 300px;
+	top: 20px;
+}
+
+#count2{
+	display: block;
+	width: 500px;
+	text-align: center;
+	position: absolute;
+	bottom: 5px;	
+}
+#count2 li{
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 10px;
+	padding: 0 5px;
+	border: 1px solid transparent;
+	border-radius: 20px;
+	background: #ccc;
+}
+#count2 li:hover{
 	background: rgba(134,111,145,0.8);
 	color: white;
 	text-shadow: 1px 1px 1px black, 0 -1px 1px black;

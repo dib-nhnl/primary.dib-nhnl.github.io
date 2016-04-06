@@ -3,7 +3,7 @@ window.onload = function () {
 	var bH = document.body.clientHeight||document.documentElement.clientHeight;
 	var ob = document.body||document.documentElement;
 	ob.style.height = bH + 'px';
-//box1的图片轮换
+//box1的图片轮换，下标指定+自动轮播
 	var obox1 = document.getElementById('box1');
 	var oli1 = document.getElementById('lists1');
 	var oimg1 = oli1.getElementsByTagName('li');
@@ -16,6 +16,7 @@ window.onload = function () {
 		for (var i = 0; i < on1.length; i++) {
 			on1[i].className = "";
 		}
+		//根据之后的经验，这里用属性而非变量timer会好一些。
 		clearInterval(timer);
 		for (var i = 0; i < oimg1.length; i++) {
 			oimg1[i].style.opacity = 0;
@@ -72,5 +73,7 @@ window.onload = function () {
 	
 	//页面载入后直接运行自动播放
 	autoplay1();
+
+//box2的图片轮换，下标指定+多层图片立体展示
 
 }
