@@ -81,6 +81,7 @@ window.onload = function () {
 	var oc2 = document.getElementById('count2');
 	var on2 = oc2.getElementsByTagName('li');
 	var arr2 = [];
+	var index2 = 2;
 	for (var i = 0; i < oimg2.length; i++) {
 		var limg = oimg2[i];
 		arr2.push({
@@ -105,24 +106,25 @@ window.onload = function () {
 	}
 	//显示图片的函数
 	function show2(n) {
+		tab2(n);
 		//修改包含样式信息的数组内元素顺序
-		//arr2.slice(0)很重要，否则在原数组上操作会混乱
-		var set2 = opArr(n,arr2.slice(0));
+		var set2 = opArr(n,arr2);
 		// 根据修改后的数组操作图片移动
 		for (var i = 0; i < oimg2.length; i++) {
 			oimg2[i].style.zIndex = set2[i].zIndex;
 			move2(oimg2[i],set2[i]);
 		}
+		index2 = n;
 	}
 	// 修改保存了样式的数组的函数
-	function opArr(n,arr) {
-		n = n - Math.floor(oimg2.length / 2);
-		for (var i = 0; i < Math.abs(n); i++) {
-			if (n < 0) {
-				arr.unshift(arr.pop());
-			}
-			if (n > 0) {
+	function opArr(m,arr) {
+		m = m - index2;
+		for (var i = 0; i < Math.abs(m); i++) {
+			if (m < 0) {
 				arr.push(arr.shift());
+			}
+			if (m > 0) {
+				arr.unshift(arr.pop());
 			}
 		}
 		return arr;
@@ -151,4 +153,12 @@ window.onload = function () {
 			}
 		},50);
 	}
+	//改变下标
+	function tab2(m) {
+		for (var i = 0; i < on2.length; i++) {
+			on2[i].className = "";
+		}
+		on2[m].className = "current2";
+	}
+	show2(0);
 }
