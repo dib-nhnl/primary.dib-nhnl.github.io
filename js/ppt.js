@@ -3,7 +3,7 @@ window.onload = function () {
 	var bH = document.body.clientHeight||document.documentElement.clientHeight;
 	var ob = document.body||document.documentElement;
 	ob.style.height = bH + 'px';
-//box1的图片轮换，下标指定+自动轮播
+//box1的图片轮换，单框渐变自动+键控轮播
 	var obox1 = document.getElementById('box1');
 	var oli1 = document.getElementById('lists1');
 	var oimg1 = oli1.getElementsByTagName('li');
@@ -74,7 +74,7 @@ window.onload = function () {
 	//页面载入后直接运行自动播放
 	autoplay1();
 
-//box2的图片轮换，下标指定+多层图片立体展示
+//box2的图片轮换，多图立体键控动态
 	var obox2 = document.getElementById('box2');
 	var oli2 = document.getElementById('lists2');
 	var oimg2 = oli2.getElementsByTagName('li');
@@ -161,4 +161,7 @@ window.onload = function () {
 		on2[m].className = "current2";
 	}
 	show2(0);
+
+//box3的图片轮换，多图并列键控滑动
+
 }
