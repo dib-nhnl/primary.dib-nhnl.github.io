@@ -1,5 +1,5 @@
 window.onload = function () {
-//给body添加渐变色，这里让body先有个高度，开发完毕后取消这些
+//为了给body添加渐变色
 	var bH = document.body.clientHeight||document.documentElement.clientHeight;
 	var ob = document.body||document.documentElement;
 	ob.style.height = bH + 'px';
@@ -135,17 +135,17 @@ window.onload = function () {
 		obj.timer2 = setInterval(function () {
 			var de2 = true;
 			for (var key in arr2item) {
-				var cur = parseInt(getStyle(obj, key));
-				var final = arr2item[key];
+				var cur2 = parseInt(getStyle(obj, key));
+				var final2 = arr2item[key];
 				// 设置一个速度，在定时函数内这将制造先快后慢的动画，这除数应该是需要注意的
-				var speed = (final - cur) / 5;
-				speed = (speed >= 0)?Math.ceil(speed):Math.floor(speed);
-				if (cur != final) {
+				var speed2 = (final2 - cur2) / 5;
+				speed2 = (speed2 >= 0)?Math.ceil(speed2):Math.floor(speed2);
+				if (cur2 != final2) {
 					de2 = false;
 				}
-				cur = cur + speed;
+				cur2 = cur2 + speed2;
 				// 什么时候用.key什么时候用[key]取决于key是字符串还是变量，很显然这里key是字符串
-				obj.style[key] = cur + 'px';
+				obj.style[key] = cur2 + 'px';
 			}
 			if (de2 == true) {
 				clearInterval(obj.timer2);
@@ -163,5 +163,60 @@ window.onload = function () {
 	show2(0);
 
 //box3的图片轮换，多图并列键控滑动
+//值得改进的地方：不同组图片用不同的ul来区分(ul不设置id)js代码相应修改，增加相应变量，修改group3（其值应为innerHTML翻倍后图片组数量的一半）（oli3Width也就不需要了，需要增加一个新的分组宽度），和分组的具体情况挂钩，方便以后修改页面增加图片之后轮播自动调整
+	var oli3 = document.getElementById('lists3');
+	var wr3 = document.getElementById('wrap3');
+	var preb3 = document.getElementById('pre3');
+	var nextb3 = document.getElementById('next3');
+	oli3.innerHTML += oli3.innerHTML;
+	var oli3Width = 700;
+	var group3 = 2;
+	var index3 = 0;
+	wr3.style.left = 0;//发现一开始nextbtn很难起作用，所以加了这一句初始化。后来想明白了，这是因为一开始没用box2的getStyle来获取非嵌入的css样式…
+
+	preb3.onclick = function () {
+		if (index3 > 0) {
+			index3 --;
+		} else {
+			index3 = group3 - 1;
+			wr3.style.left = -(oli3Width * group3) + 'px';
+		}
+		move3();
+	}
+	next3.onclick = function () {
+		if (index3 < (group3 * 2 - 1)) {
+			index3 ++;
+		} else {
+			index3 = group3;
+			wr3.style.left = -(oli3Width * (group3 - 1)) + 'px';
+		}
+		move3();
+	}
+
+	function move3() {
+		if (wr3.timer3) {
+			clearInterval(wr3.timer3);
+		}
+		wr3.timer3 = setInterval(function () {
+			var de3 = true;
+			var cur3 = parseInt(wr3.style.left);
+			var final3 = -oli3Width * index3;
+			var speed3 = (final3 - cur3) / 10;
+			if (speed3 > 0) {
+				speed3 = Math.ceil(speed3);
+			} else {
+				speed3 = Math.floor(speed3);
+			}
+			if (cur3 != final3) {
+				cur3 = cur3 + speed3;
+				wr3.style.left = cur3 + 'px';
+				de3 = false;
+			}
+			if (de3) {
+				clearInterval(wr3.timer3);
+				wr3.timer3 = null;
+			}
+		},10);
+	}
 
 }
