@@ -143,7 +143,7 @@ img{
 #box3{
 	/*border: 1px solid black;*/
 	position: absolute;
-	margin: 350px auto auto 50px;
+	margin: 350px auto auto 10px;
 	padding: 5px 10px 5px 10px;
 	width: 680px;
 	overflow: hidden;
@@ -187,4 +187,88 @@ img{
 #count3 li.nextbtn{
 	top: 30px;
 	left: 650px;
+}
+
+#box4{
+	position: absolute;
+	margin: 350px auto auto 800px;
+	overflow: hidden;
+	border-radius: 7px;
+}
+#box4 p{
+	line-height: 1.5em;
+	padding: 10px;
+	color: rgba(0,25,0,0.2);
+	background: rgba(0,0,0,0.2);
+	transition: all 1.5s ease-out 0.5s;
+}
+#box4 p em{
+	font-style: normal;
+	font-family: '幼圆';
+	font-weight: bold;
+	font-size: 1.5em;
+	color: rgba(255,255,255,1);
+}
+#box4:hover p em{
+	color: white;
+}
+#box4:hover p{
+	color: white;
+	text-shadow: 1px 1px 1px black;
+	-ms-transform: rotate(360deg);
+	-moz-transform: rotate(360deg);
+	-webkit-transform: rotate(360deg);
+	-o-transform: rotate(360deg);
+}
+.border_b{
+	position: absolute;
+	bottom: 1px;
+	height: 1px;
+	width: 275px;
+	left: -275px;
+	background: rgba(255,255,255,0.8);
+	transition: all 2s ease-in 0s;
+}
+#box4:hover .border_b{
+	left: 0px;
+	height: 2px;	
+}
+.border_t{
+	position: absolute;
+	top: 1px;
+	height: 1px;
+	width: 275px;
+	left: 275px;
+	background: rgba(255,255,255,0.8);
+	transition: all 2s ease-in 0s;
+}
+#box4:hover .border_t{
+	left: 0px;
+	height: 2px;	
+}
+.border_l{
+	position: absolute;
+	left: 1px;
+	top: -116px;
+	height: 116px;
+	width: 1px;
+	background: rgba(255,255,255,0.8);
+	transition: all 2s ease-in 0s;
+}
+#box4:hover .border_l{
+	top: 0px;
+	width: 2px;	
+}
+.border_r{
+	position: absolute;
+	bottom: -116px;
+	height: 116px;
+	width: 1px;
+	right: 1px;
+	background: rgba(255,255,255,0.8);
+	transition: all 2s ease-in 0s;
+}
+#box4:hover .border_r{
+	bottom: 0px;
+	width: 2px;	
 }
