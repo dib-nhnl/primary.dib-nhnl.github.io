@@ -96,6 +96,12 @@ window.onload = function () {
 			show2(this.index);
 		}
 	}
+	for (var i = 0; i < oimg2.length; i++){
+		oimg2[i].index = i;
+		oimg2[i].onclick = function () {
+			show2(this.index);
+		}
+	}
 	// 获取top、left、width、heigh、z-index
 	function getStyle(obj, key) {
 		if (obj.currentStyle) {
