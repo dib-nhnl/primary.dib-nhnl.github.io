@@ -1,0 +1,170 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url(../images/bg_login_1.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+#left,#right{
+	float: left;
+	width: 50%;
+	height: 900px;
+	margin: 0 0 0 -150px;
+	/*background: blue;*/
+}
+#innerL,#innerR{
+	margin: 0 0 0 150px;
+	/*background: rgba(169,169,169,0.4);*/
+	/*height: 50%;*/
+	position: relative;
+}
+/*ÖÐ¼ä*/
+#mid{
+	float: left;
+	width: 300px;
+	/*background: rgba(100,100,100,0.4);*/
+	height: 800px;
+}
+#mid_head{
+	margin: 20px auto auto;
+	width: 300px;
+	height: 1px;
+	position: relative;
+}
+
+#mid_btn_l{
+	width: 0;
+	height: 0;
+	border-right: 40px solid #ccc;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	position: absolute;
+	left: -40px;
+}
+#mid_btn_r{
+	width: 0;
+	height: 0;
+	border-left: 40px solid #ccc;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	position: absolute;
+	right: -40px;
+}
+#mid_btn_l,#mid_btn_r{
+	/*display: none;*/
+}
+#welcome_wrap{
+	height: 300px;
+	width: 300px;
+	clear: both;
+	margin: 150px auto auto;
+	border: 1px solid transparent;
+	border-radius: 50%;
+	box-shadow: 0 0 5px rgba(255,255,255,0.8);	
+	transition: all 2s ease 0s;
+}
+/*#mid .wrap:hover{
+	background: rgba(255,255,255,0.8);
+}*/
+#welcome_form{
+	margin: 50px auto auto;
+}
+#welcome_form h2{
+	color: white;
+	text-shadow: 1px 1px 2px black, -1px -1px 2px #ccc;
+	line-height: 3em;
+	text-align: center;
+}
+#welcome_form p{
+	color: white;
+	text-shadow: 1px 1px 1px black, -1px -1px 2px #ccc;
+	line-height: 1.8em;
+	text-align: center;
+}
+#welcome_form p label{
+	margin-left: -40px;
+	display: inline-block;
+	width: 80px;
+	text-align: right;
+}
+#welcome_btn_p{
+	line-height: 3em!important;
+}
+#welcome_btn_p input{
+	width: 60px;
+	margin: auto 5px;
+}
+#mid_warn{
+	margin: 100px auto auto;
+	/*display: none;*/
+	padding: 20px;
+	color: white;
+}
+/*×ó²à*/
+#left_wrap{
+	/*display: none;*/
+	position: absolute;
+	top: 30px;
+	left: 4px;
+	padding: 30px;
+	background: rgba(255,255,255,0.4);
+	border-radius: 8px;
+}
+#left_wrap p{
+	clear: both;
+	line-height: 1.8em;
+	font-weight: bold;
+	text-shadow: 0 0 2px #ccc;
+}
+#left_wrap input{
+	text-align: center;
+}
+#left_wrap p span{
+	font-weight: normal;
+	float: right;
+}
+#left_wrap i{
+	font-weight: bold;
+	font-family: "¿¬Ìå";
+}
+#left_wrap p textarea{
+	width: 240px;
+	height: 160px;
+	resize: none;
+	vertical-align: top;
+	margin-top: 6px;
+	padding: 2px 5px;
+}
+#formL_btn_p{
+	display: inline-block;
+	text-align: center;
+	margin: 10px auto auto;
+}
+#formL_btn_p input{
+	font-weight: bold;
+	font-size: 1em;
+	padding: 2px;
+	margin: auto 20px;
+	width: 80px;
+}
+#formL .birth{
+	width: 3em;
+}
+#formL .e_mail{
+	width: 240px;
+}
+/*ÓÒ²à*/
+#plan{
+	/*display: none;*/
+	position: absolute;
+	top: 30px;
+	right: 4px;
+	background: rgba(255,255,255,0.4);
+	padding: 30px;
+	border-radius: 8px;
+}
