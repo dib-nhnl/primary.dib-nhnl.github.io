@@ -10,6 +10,11 @@ body{
 	background-attachment: fixed;
 	background-size: cover;
 }
+.input_hl{
+	background: rgba(0,0,0,0.4)!important;
+	box-shadow: -1px -1px 1px #ccc;
+	color: white;
+}
 #left,#right{
 	float: left;
 	width: 50%;
@@ -105,6 +110,10 @@ body{
 	padding: 20px;
 	color: white;
 }
+#quit{
+	width: 100px;
+	margin-left: 100px;
+}
 /*×ó²à*/
 #left_wrap{
 	/*display: none;*/
@@ -123,6 +132,12 @@ body{
 }
 #left_wrap input{
 	text-align: center;
+}
+#formL #birth input{
+	width: 3em;
+}
+#formL #e_mail input{
+	width: 240px;
 }
 #left_wrap p span{
 	font-weight: normal;
@@ -143,7 +158,7 @@ body{
 #formL_btn_p{
 	display: inline-block;
 	text-align: center;
-	margin: 10px auto auto;
+	margin: 10px auto 10px 30px;
 }
 #formL_btn_p input{
 	font-weight: bold;
@@ -152,12 +167,7 @@ body{
 	margin: auto 20px;
 	width: 80px;
 }
-#formL .birth{
-	width: 3em;
-}
-#formL .e_mail{
-	width: 240px;
-}
+
 /*ÓÒ²à*/
 #plan{
 	/*display: none;*/

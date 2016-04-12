@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Login</title>
 	<link rel="stylesheet" href="../css/Login.css" />
+	<script type="text/javascript" src="../js/Login.js"></script>
 </head>
 <body>
 	<div id="left">
@@ -29,16 +30,16 @@
 						<input type="radio" name="marriage" value="single" id="single" />
 						<label for="single">未婚</label>
 					</p>
-					<p>
+					<p id="birth">
 						生日：
-						<input type="text" class="birth" name="birth_year"/>
+						<input type="text" name="birth_year"/>
 						<label>年</label>
-						<input type="text" class="birth" name="birth_month" />
+						<input type="text" name="birth_month" />
 						<label>月</label>
-						<input type="text" class="birth" name="birth_day" />
+						<input type="text" name="birth_day" />
 						<label>日</label>
 					</p>
-					<p>
+					<p id="e_mail">
 						邮件：
 						<input type="text" name="e_mail" class="e_mail" />
 					</p>
@@ -69,8 +70,8 @@
 	<div id="mid">
 		<div id="innerM">
 			<div id="mid_head">
-				<div id="mid_btn_l"></div>
-				<div id="mid_btn_r"></div>
+				<div id="mid_btn_l" title="完善信息"></div>
+				<div id="mid_btn_r" title="建设日志"></div>
 			</div>
 			<div id="welcome_wrap">
 				<form id="welcome_form">
@@ -86,9 +87,9 @@
 					<p id="welcome_btn_p">
 						<input type="submit" value="登录" />
 						<input type="reset" value="取消" />
-						<input type="button" value="离开" id="quit" />
 					</p>
 				</form>
+				<input type="button" value="离开" id="quit" />
 			</div>
 			<div id="mid_warn">warning</div>
 		</div>
@@ -96,6 +97,10 @@
 	<div id="right">
 		<div id="innerR">
 			<div id="plan">
+				<ul>
+					<li>输入框焦点高亮</li>
+					<li>离开按钮返回主页</li>
+				</ul>
 				to be continued…
 			</div>
 		</div>
