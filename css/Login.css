@@ -11,7 +11,7 @@ body{
 	background-size: cover;
 }
 .input_hl{
-	background: rgba(0,0,0,0.4)!important;
+	background: rgba(0,0,0,0.3)!important;
 	box-shadow: -1px -1px 1px #ccc;
 	color: white;
 }
@@ -34,6 +34,9 @@ body{
 	width: 300px;
 	/*background: rgba(100,100,100,0.4);*/
 	height: 800px;
+}
+#innerM{
+	position: relative;
 }
 #mid_head{
 	margin: 20px auto auto;
@@ -68,14 +71,11 @@ body{
 	width: 300px;
 	clear: both;
 	margin: 150px auto auto;
-	border: 1px solid transparent;
+	border: 1px groove rgba(255,255,255,0.5);
 	border-radius: 50%;
-	box-shadow: 0 0 5px rgba(255,255,255,0.8);	
-	transition: all 2s ease 0s;
+	box-shadow: 0 0 10px rgba(255,255,255,0.8);	
+	background: rgba(255,255,255,0.3);
 }
-/*#mid .wrap:hover{
-	background: rgba(255,255,255,0.8);
-}*/
 #welcome_form{
 	margin: 50px auto auto;
 }
@@ -139,7 +139,7 @@ body{
 #formL #e_mail input{
 	width: 240px;
 }
-#left_wrap p span{
+#left_wrap p .span_r{
 	font-weight: normal;
 	float: right;
 }

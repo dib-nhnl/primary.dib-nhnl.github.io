@@ -19,16 +19,13 @@
 						性别：
 						<input type="radio" name="sex" value="male" id="male" />
 						<label for="male">男</label>
-						&nbsp;&nbsp;
 						<input type="radio" name="sex" value="female" id="female" />
 						<label for="female">女</label>
 					</p>
 					<p>
 						婚姻：
-						<input type="radio" name="marriage" value="married" id="married" />
-						<label for="married">已婚</label>
-						<input type="radio" name="marriage" value="single" id="single" />
-						<label for="single">未婚</label>
+						<span id="marriage"></span>
+						<span id="marriage_detail"></span>
 					</p>
 					<p id="birth">
 						生日：
@@ -57,7 +54,7 @@
 					<p>备注：
 					<textarea name="remarks" id="remarks" placeholder="这个人很懒，没留下什么"></textarea>
 					<br />
-					<span>备注还可以输入<i>99</i>&nbsp;字</span>
+					<span class="span_r">备注还可以输入<i>99</i>&nbsp;字</span>
 					</p>
 					<p id="formL_btn_p">
 						<input type="submit" value="提交" id="left_submit" />
@@ -78,11 +75,11 @@
 					<h2>用户登录</h3>
 					<p>
 						<label>用户名：</label>
-						<input type="text" value="用户名" />
+						<input type="text" value="" />
 					</p>
 					<p>
 						<label>密码：</label>
-						<input type="password" value="密码" />
+						<input type="password" value="" />
 					</p>
 					<p id="welcome_btn_p">
 						<input type="submit" value="登录" />
@@ -100,6 +97,8 @@
 				<ul>
 					<li>输入框焦点高亮</li>
 					<li>离开按钮返回主页</li>
+					<li>阻止文本框复制粘贴</li>
+					<li>婚姻情况动态下拉菜单</li>
 				</ul>
 				to be continued…
 			</div>
