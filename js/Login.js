@@ -33,34 +33,32 @@ window.onload = function () {
 	quit.onclick = function () {
 		window.location.href = "../index.html";
 	}
-	//动态“婚姻”二级下拉菜单
-	var marriage_items = [["0:请选择","1:未婚","2:已婚"],["1:离异","2:单身","3:征友"],["1:美满","2:分居","3:再婚"]];
+	//动态“婚姻”二级下拉菜单，代码有待完善，应该具有自适应性。
 	var marriage = document.getElementById('marriage');
 	var marriage_detail = document.getElementById('marriage_detail');
-	function marriageMatch(arr,callback) {
-		for (var i = 0; i < arr.length; i++) {
-			if (callback.call(arr[i], i, arr[i]) === false) {
-				break;
+	var m_select = marriage.getElementsByTagName('select')[0];
+	m_select.onchange = function () {
+		marriage_detail.innerHTML = "";
+		if (this.value != "0"){
+			switch(this.value){
+				case "1":
+					var m_1 = ["请选择", "单身主义", "离异", "征友"];
+					var m_d_ob1 = "";
+					for (var i = 0; i < m_1.length; i++) {
+						m_d_ob1 += '<option value = "' + i + '">' + m_1[i] + '</option>';
+					}
+					marriage_detail.innerHTML = '<select>' + m_d_ob1 + '</select>';
+					break;
+				case "2":
+					var m_2 = ["请选择", "美满", "再婚", "分居"];
+					var m_d_ob2 = "";
+					for (var i = 0; i < m_2.length; i++) {
+						m_d_ob2 += '<option value = "' + i + '">' + m_2[i] + '</option>';
+					}
+					marriage_detail.innerHTML = '<select>' + m_d_ob2 + '</select>';
+					break;
 			}
 		}
-		return arr;
 	}
-	marriageMatch(marriage_items, function (i) {
-		if (i === 0) {
-			marriage_fill(marriage, marriage_items[0]);
-		}
-	});
-	var m_select = marriage.getElementsByTagName('select')[0];
-	var m_d_select = marriage_detail.getElementsByTagName('select')[0];
-	m_select.onchange = function () {
-		marriage_fill(marriage_detail,marriage_items[this.value]);
-	}
-	function marriage_fill(obj, items) {
-		var op = "";
-		marriageMatch(items, function (j) {
-			op += '<option value="' + (j + 1) + '">' + (items[j].replace(/\d+:/, '')) + '</option>';
-		});
-		obj.innerHTML = '<select>' + op + '</select>';
-		return obj;
-	}
+
 }
