@@ -60,5 +60,13 @@ window.onload = function () {
 			}
 		}
 	}
+	// 生日栏只能输入数字
+	var obirth = document.getElementById('birth');
+	var birth_input = obirth.getElementsByTagName('input');
+	for (var i = 0; i < birth_input.length; i++) {
+		birth_input[i].onkeyup = function () {
+			this.value = this.value.replace(/\D/g,'');
+		}
+	}
 
 }
