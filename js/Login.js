@@ -7,6 +7,7 @@ window.onload = function () {
 		if (oinput[i].getAttribute('type') === "text") {
 			oinput[i].onfocus = function () {
 				this.className = "input_hl";
+				this.select();
 			}
 			oinput[i].onblur = function () {
 				this.className = "";
@@ -23,6 +24,7 @@ window.onload = function () {
 	var otextarea = document.getElementsByTagName('textarea');
 	for (var i = 0; i < otextarea.length; i++) {
 		otextarea[i].onfocus = function () {
+			this.select();
 			this.className = "input_hl";
 		}
 		otextarea[i].onblur = function () {

@@ -48,7 +48,7 @@ body{
 #mid_btn_l{
 	width: 0;
 	height: 0;
-	border-right: 40px solid #ccc;
+	border-right: 40px solid rgba(142,197,103,1);
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
 	position: absolute;
@@ -57,7 +57,7 @@ body{
 #mid_btn_r{
 	width: 0;
 	height: 0;
-	border-left: 40px solid #ccc;
+	border-left: 40px solid rgba(234,204,131,1);
 	border-top: 20px solid transparent;
 	border-bottom: 20px solid transparent;
 	position: absolute;
