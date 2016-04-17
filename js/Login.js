@@ -1,10 +1,15 @@
 window.onload = function () {
+	//页面重载时表单重置
+	var oform = document.getElementsByTagName('form');
+	for (var i = 0; i < oform.length; i++) {
+		oform[i].reset();
+	}
 	// 输入框背景高亮
 	// 禁止输入框复制黏贴
 	var oinput = document.getElementsByTagName('input');
 	for (var i = 0; i < oinput.length; i++) {
 		oinput[i].index = i;
-		if (oinput[i].getAttribute('type') === "text") {
+		if (oinput[i].getAttribute('type') === "text" || oinput[i].getAttribute('type') === "number" ) {
 			oinput[i].onfocus = function () {
 				this.className = "input_hl";
 				this.select();
@@ -71,4 +76,8 @@ window.onload = function () {
 		}
 	}
 
+}
+//离开页面前的确认框
+window.onbeforeunload = function (e) {
+	e.returnValue = "确认离开页面吗";
 }
