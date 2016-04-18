@@ -4,6 +4,65 @@ window.onload = function () {
 	for (var i = 0; i < oform.length; i++) {
 		oform[i].reset();
 	}
+	// 中间表单提交后改变界面
+	var w_wrap = document.getElementById('welcome_wrap');
+	var w_form = document.getElementById('welcome_form');
+	var m_submit = document.getElementById('mid_submit'),
+		m_reset = document.getElementById('mid_reset'),
+		quit = document.getElementById('quit');
+	var mid_btn_l = document.getElementById('mid_btn_l');
+	var mid_btn_r = document.getElementById('mid_btn_r');
+	m_submit.disabled = false;
+	m_reset.disabled = false;
+	quit.disabled = false;
+	w_form.onsubmit = function (evt) {
+		// 防止重复点击
+		m_submit.disabled = true;
+		m_reset.disabled = true;
+		quit.disabled = true;
+		// 阻止默认事件
+		evt.preventDefault();
+		// 隐藏登录框
+		changeWelcomeWrap();
+		//显示左右按钮
+		// showHeadBtn();
+		
+	}
+	//另一写法而已
+	// w_form.addEventListener('submit', function (evt) {
+	// 	// 阻止默认事件
+	// 	evt.preventDefault();
+	// 	// 隐藏登录框
+	// 	changeWelcomeWrap();
+	// },false);
+
+	// 获得css样式的函数
+	function getStyle(obj, key) {
+		if (obj.currentStyle) {
+			return obj.currentStyle[key];
+		} else {
+			return getComputedStyle(obj, false)[key];
+		}
+	}
+	// 改变登录框所在框体
+	function changeWelcomeWrap() {
+		w_wrap.style.opacity = 1;
+		w_wrap.style.filter = "alpha(opacity = 100)";
+		w_wrap.timer = null;
+		var w_wrap_of = 100;
+		w_wrap.timer = setInterval(function () {
+			if (w_wrap_of <= 0) {
+				clearInterval(w_wrap.timer);
+			} else {
+				var w_wrap_mtop = parseInt(getStyle(w_wrap, 'margin-top'));
+				w_wrap.style.opacity = (w_wrap_of / 100);
+				w_wrap.style.filter = "alpha(opacity = " + w_wrap_of + ")";
+				w_wrap_of -= 1;
+				w_wrap.style['margin-top'] = (w_wrap_mtop - 1.5) + "px";
+			}
+		},30);
+	}
+
 	// 输入框背景高亮
 	// 禁止输入框复制黏贴
 	var oinput = document.getElementsByTagName('input');
@@ -36,7 +95,7 @@ window.onload = function () {
 			this.className = "";
 		}
 	}
-	var quit = document.getElementById('quit');
+	//离开页面按钮
 	quit.onclick = function () {
 		window.location.href = "../index.html";
 	}
@@ -77,7 +136,7 @@ window.onload = function () {
 	}
 
 }
-//离开页面前的确认框
+// 离开页面前的确认框
 window.onbeforeunload = function (e) {
 	e.returnValue = "确认离开页面吗";
 }
