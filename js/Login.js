@@ -4,7 +4,6 @@ window.onload = function () {
 	for (var i = 0; i < oform.length; i++) {
 		oform[i].reset();
 	}
-	// 中间表单提交后改变界面
 	var w_wrap = document.getElementById('welcome_wrap');
 	var w_form = document.getElementById('welcome_form');
 	var m_submit = document.getElementById('mid_submit'),
@@ -12,9 +11,18 @@ window.onload = function () {
 		quit = document.getElementById('quit');
 	var mid_btn_l = document.getElementById('mid_btn_l');
 	var mid_btn_r = document.getElementById('mid_btn_r');
+	var mid_warn = document.getElementById('mid_warn');
+	var left_wrap = document.getElementById('left_wrap');
+	var plan = document.getElementById('plan');
 	m_submit.disabled = false;
 	m_reset.disabled = false;
 	quit.disabled = false;
+	var de_mid_btn_l = true, de_mid_btn_r = true;
+	//离开页面按钮
+	quit.onclick = function () {
+		window.location.href = "../index.html";
+	}
+	// 中间表单提交后改变界面
 	w_form.onsubmit = function (evt) {
 		// 防止重复点击
 		m_submit.disabled = true;
@@ -24,9 +32,8 @@ window.onload = function () {
 		evt.preventDefault();
 		// 隐藏登录框
 		changeWelcomeWrap();
-		//显示左右按钮
-		// showHeadBtn();
-		
+		//显示左右按钮以及提示
+		setTimeout(showHeadBtn, 3500);
 	}
 	//另一写法而已
 	// w_form.addEventListener('submit', function (evt) {
@@ -50,17 +57,107 @@ window.onload = function () {
 		w_wrap.style.filter = "alpha(opacity = 100)";
 		w_wrap.timer = null;
 		var w_wrap_of = 100;
-		w_wrap.timer = setInterval(function () {
-			if (w_wrap_of <= 0) {
-				clearInterval(w_wrap.timer);
-			} else {
+		mid_warn.innerHTML = "<p>登录中</p>";
+		w_wrap.timer = setInterval(function () {		
+			if (w_wrap_of >= 0) {
 				var w_wrap_mtop = parseInt(getStyle(w_wrap, 'margin-top'));
 				w_wrap.style.opacity = (w_wrap_of / 100);
 				w_wrap.style.filter = "alpha(opacity = " + w_wrap_of + ")";
 				w_wrap_of -= 1;
 				w_wrap.style['margin-top'] = (w_wrap_mtop - 1.5) + "px";
+				mid_warn.innerHTML = (w_wrap_of % 25 === 0)?"<p>登录中………</p>":"<p>登录中</p>";
+			} else {
+				clearInterval(w_wrap.timer);
+				w_wrap.timer = null;
 			}
 		},30);
+	}
+	// 显示左右按钮
+	function showHeadBtn() {
+		mid_btn_r.style.display = mid_btn_l.style.display = "block";
+		mid_warn.innerHTML = "<p>登录成功！</p><p>点击上方两侧按钮可开关其他界面</p><p>开启一个按钮前请先关闭另一个</p>";
+	}
+	// 左右按钮改变
+	var l_cur_top = null, l_back_top = null, l_final_top = null;
+	var r_cur_top = null, r_back_top = null, r_final_top = null;
+	var speed = null;
+	mid_btn_l.onclick = function () {
+		mid_warn.innerHTML = "";
+		if (de_mid_btn_l && de_mid_btn_r) {
+			l_cur_top = parseInt(getStyle(mid_btn_l, 'top'));
+			l_final_top = 500;
+			de_mid_btn_l = false;
+			mid_btn_l.timer = null;
+			l_back_top = l_cur_top;
+			mid_btn_l.className = "rotate_btn_l";
+			mid_btn_l.timer = setInterval(function () {
+				speed = Math.ceil((l_final_top - l_cur_top) / 4);
+				l_cur_top = l_cur_top + speed;
+				mid_btn_l.style['top'] = l_cur_top + 'px';
+				if (l_cur_top === l_final_top) {
+					clearInterval(mid_btn_l.timer);
+					mid_btn_l.timer = null;
+					left_wrap.style['display'] = "block";
+				}
+			},3);
+		} else if ((!de_mid_btn_l) && de_mid_btn_r) {
+			de_mid_btn_l = true;
+			mid_btn_l.timer = null;
+			mid_btn_l.className = "";
+			left_wrap.style['display'] = "none";
+			l_cur_top = parseInt(getStyle(mid_btn_l, 'top'));
+			l_final_top = l_back_top;
+			mid_btn_l.timer = setInterval(function () {
+				speed = Math.ceil((l_cur_top - l_final_top) / 4);
+				l_cur_top = l_cur_top - speed;
+				mid_btn_l.style['top'] = l_cur_top + 'px';
+				if (l_cur_top === l_final_top) {
+					clearInterval(mid_btn_l.timer);
+					mid_btn_l.timer = null;
+				}
+			},3);
+		} else {
+			return false;
+		}
+	}
+	mid_btn_r.onclick = function () {
+		mid_warn.innerHTML = "";
+		if (de_mid_btn_l && de_mid_btn_r) {
+			r_cur_top = parseInt(getStyle(mid_btn_r, 'top'));
+			r_final_top = 500;
+			de_mid_btn_r = false;
+			mid_btn_r.timer = null;
+			r_back_top = r_cur_top;
+			mid_btn_r.className = "rotate_btn_r";
+			mid_btn_r.timer = setInterval(function () {
+				speed = Math.ceil((r_final_top - r_cur_top) / 4);
+				r_cur_top = r_cur_top + speed;
+				mid_btn_r.style['top'] = r_cur_top + 'px';
+				if (r_cur_top === r_final_top) {
+					clearInterval(mid_btn_r.timer);
+					mid_btn_r.timer = null;
+					plan.style['display'] = "block";
+				}
+			},3);
+		} else if ((!de_mid_btn_r) && de_mid_btn_l) {
+			de_mid_btn_r = true;
+			mid_btn_r.timer = null;
+			mid_btn_r.className = "";
+			plan.style['display'] = "none";
+			r_cur_top = parseInt(getStyle(mid_btn_r, 'top'));
+			r_final_top = r_back_top;
+			mid_btn_r.timer = setInterval(function () {
+				speed = Math.ceil((r_cur_top - r_final_top) / 4);
+				r_cur_top = r_cur_top - speed;
+				mid_btn_r.style['top'] = r_cur_top + 'px';
+				if (r_cur_top === r_final_top) {
+					clearInterval(mid_btn_r.timer);
+					mid_btn_r.timer = null;
+				}
+			},3);
+		} else {
+			return false;
+		}
 	}
 
 	// 输入框背景高亮
@@ -94,10 +191,6 @@ window.onload = function () {
 		otextarea[i].onblur = function () {
 			this.className = "";
 		}
-	}
-	//离开页面按钮
-	quit.onclick = function () {
-		window.location.href = "../index.html";
 	}
 	//动态“婚姻”二级下拉菜单，代码有待完善，应该具有自适应性。
 	var marriage = document.getElementById('marriage');
