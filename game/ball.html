@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>鼠标追球的故事</title>
+	<title>躲鼠标的球</title>
 </head>
 <style type="text/css">
 	*{
@@ -66,17 +66,17 @@
 			winW = document.documentElement.clientWidth||document.body.clientWidth,
 			winH = document.documentElement.clientHeight||document.body.clientHeight;
 		
-		window.onload = fool;
-
-		function fool() {
-			setTimeout(escape,500);
+		window.onload = function () {
+			setTimeout(escape, 500);
 			ball.onmouseover = escape;
+			ball.onmouseout = quiet;
 			w.onmouseover = period;
 			w.onmouseout = quiet;
-			ball.onmouseout = quiet;
 		}
 
 		function escape() {
+			ball.setAttribute("class","ballhover");
+			// w.timer = null;
 			var maxW = winW - w.offsetWidth,
 				maxH = winH - w.offsetHeight,
 				wx = w.offsetLeft + (Math.random() * 2 - 1) * winW,
@@ -91,19 +91,45 @@
 			} else if (wy > maxH ) {
 				wy = maxH;
 			}
+			// var w_cur_x = parseInt(getStyle(w, 'left')),
+			// 	w_cur_y = parseInt(getStyle(w, 'top'));
+			// var speedx = null, speedy = null;
+			// w.timer = setInterval(function () {
+			// 	speedx = (wx - w_cur_x) / 3;
+			// 	speedx = (speedx >= 0)?Math.ceil(speedx):Math.floor(speedx);
+			// 	w_cur_x += speedx;
+			// 	w.style.left = w_cur_x + "px";
+			// 	speedy = (wy - w_cur_y) / 3;
+			// 	speedy = (speedy >= 0)?Math.ceil(speedy):Math.floor(speedy);
+			// 	w_cur_y += speedy;
+			// 	w.style.top = w_cur_y + "px";
+			// 	if (w_cur_x === wx && w_cur_y === wy) {
+			// 		clearInterval(w.timer);
+			// 		w.timer = null;
+			// 	}
+			// },2);
 			w.style.left = wx + "px";
 			w.style.top = wy + "px";
-			ball.setAttribute("class","ballhover");
 		}
 
 		function period() {
+			bperiod = null;
 			bperiod = setInterval(escape,500);
 		}
 
 		function quiet() {
 			ball.setAttribute("class","");
 			clearInterval(bperiod);
+			bperiod = null;
 		}
+
+		// function getStyle(obj, key) {
+		// 	if (obj.currentStyle) {
+		// 		return obj.currentStyle[key];
+		// 	} else {
+		// 		return getComputedStyle(obj, false)[key];
+		// 	}
+		// }
 	</script>
 </body>
 </html>
