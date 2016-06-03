@@ -11,7 +11,7 @@ var contentData = [
 	],
 	[
 		{title: 'Bootstrap'},
-		{title: 'The Flash', url: 'b/flash.html'},
+		{title: '简单排版', url: 'b/flash.html'},
 	]
 ];
 var docForm = "";
