@@ -18,13 +18,18 @@ body{
 	border-radius: 9px;
 	box-shadow: 3px 4px 2px 3px rgba(0,0,0,0.5);
 }
-.welcome{
+.welcome p{
 	width: 400px;
 	margin: 5px auto auto;
 	text-align: center;
 	font-size: 0.8em;
 	color: white;
 	text-shadow: 2px 2px 2px #000;
+}
+.welcome a{
+	font-size: 0.8em;
+	color: white;
+	text-shadow: 1px 1px 2px #000;
 }
 .uL{
 	display: block;
