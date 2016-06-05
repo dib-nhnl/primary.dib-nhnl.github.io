@@ -11,18 +11,18 @@
 		<div id="innerL">
 			<div id="left_wrap">
 				<form id="formL">
-					<p>
+					<div>
 						昵称：
 						<input type="text" name="nickname" />
-					</p>
-					<p>
+					</div>
+					<div>
 						性别：
 						<input type="radio" name="sex" value="male" id="male" />
 						<label for="male">男</label>
 						<input type="radio" name="sex" value="female" id="female" />
 						<label for="female">女</label>
-					</p>
-					<p>
+					</div>
+					<div>
 						婚姻：
 						<span id="marriage">
 							<select name="" id="">
@@ -32,8 +32,8 @@
 							</select>
 						</span>
 						<span id="marriage_detail"></span>
-					</p>
-					<p id="birth">
+					</div>
+					<div id="birth">
 						生日：
 						<input type="text" name="birth_year"/>
 						<label>年</label>
@@ -41,12 +41,12 @@
 						<label>月</label>
 						<input type="number" min="1" max="31" name="birth_day" />
 						<label>日</label>
-					</p>
-					<p id="e_mail">
+					</div>
+					<div id="e_mail">
 						邮件：
 						<input type="text" name="e_mail" class="e_mail" />
-					</p>
-					<p>
+					</div>
+					<div>
 						爱好：
 						<input type="checkbox" name="interest" id="table_tennis" />
 						<label for="table_tennis">乒乓球</label>
@@ -55,17 +55,16 @@
 						<input type="checkbox" name="interest" id="badminton" />
 						<label for="badminton">羽毛球</label>
 						<input type="checkbox" name="interest" id="snooker" />
-						<label for="snooker">斯诺克</label>
-					</p>
-					<p>备注：
-					<textarea name="remarks" id="remarks" placeholder="这个人很懒，没留下什么"></textarea>
-					<br />
-					<span class="span_r">备注还可以输入<i>99</i>&nbsp;字</span>
-					</p>
-					<p id="formL_btn_p">
+						<label for="snooker">篮球</label>
+					</div>
+					<div>备注：
+					<textarea name="remarks" id="remarks" placeholder="这个人很懒，没留下什么" maxlength="200"></textarea>
+					<p><span class="span_r">备注还可以输入<i>200</i>&nbsp;字</span></p>
+					</div>
+					<div id="formL_btn_p">
 						<input type="submit" value="提交" id="left_submit" />
 						<input type="reset" value="取消" id="left_reset" />
-					</p>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -114,6 +113,7 @@
 					<li>“婚姻”动态下拉菜单</li>
 					<li>“生日”只能输入数字</li>
 					<li>“月份”做特别的设置</li>
+					<li>左侧文本框提示最大输入字节</li>
 					<li>添加离开提示框</li>
 					<li>防止表单按钮重复操作</li>
 					<li>中表单添加css变动效果</li>
@@ -121,8 +121,8 @@
 				</ul>
 				to be continued…
 				<ul>
-					<li>输入需要增加更多的合法性验证</li>
-					<li>左右按钮存在多次点击的bug</li>
+					<li>左侧输入需要增加更多的合法性验证</li>
+					<li>左侧文本框最大输入提示需要优化</li>
 				</ul>
 			</div>
 		</div>

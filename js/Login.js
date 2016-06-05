@@ -77,9 +77,9 @@ window.onload = function () {
 		mid_btn_r.style.display = mid_btn_l.style.display = "block";
 		mid_warn.innerHTML = "<p>登录成功！</p><p>点击上方两侧按钮可开关其他界面</p><p>开启一个按钮前请先关闭另一个</p>";
 	}
-	// 左右按钮改变
-	var l_cur_top = null, l_back_top = null, l_final_top = null;
-	var r_cur_top = null, r_back_top = null, r_final_top = null;
+	
+	var l_cur_top = null, l_final_top = null;
+	var r_cur_top = null, r_final_top = null;
 	var speed = null;
 	mid_btn_l.onclick = function () {
 		mid_warn.innerHTML = "";
@@ -88,7 +88,6 @@ window.onload = function () {
 			l_final_top = 500;
 			de_mid_btn_l = false;
 			mid_btn_l.timer = null;
-			l_back_top = l_cur_top;
 			mid_btn_l.className = "rotate_btn_l";
 			mid_btn_l.timer = setInterval(function () {
 				speed = Math.ceil((l_final_top - l_cur_top) / 4);
@@ -106,7 +105,7 @@ window.onload = function () {
 			mid_btn_l.className = "";
 			left_wrap.style['display'] = "none";
 			l_cur_top = parseInt(getStyle(mid_btn_l, 'top'));
-			l_final_top = l_back_top;
+			l_final_top = 0;
 			mid_btn_l.timer = setInterval(function () {
 				speed = Math.ceil((l_cur_top - l_final_top) / 4);
 				l_cur_top = l_cur_top - speed;
@@ -127,7 +126,6 @@ window.onload = function () {
 			r_final_top = 500;
 			de_mid_btn_r = false;
 			mid_btn_r.timer = null;
-			r_back_top = r_cur_top;
 			mid_btn_r.className = "rotate_btn_r";
 			mid_btn_r.timer = setInterval(function () {
 				speed = Math.ceil((r_final_top - r_cur_top) / 4);
@@ -145,7 +143,7 @@ window.onload = function () {
 			mid_btn_r.className = "";
 			plan.style['display'] = "none";
 			r_cur_top = parseInt(getStyle(mid_btn_r, 'top'));
-			r_final_top = r_back_top;
+			r_final_top = 0;
 			mid_btn_r.timer = setInterval(function () {
 				speed = Math.ceil((r_cur_top - r_final_top) / 4);
 				r_cur_top = r_cur_top - speed;
@@ -182,7 +180,10 @@ window.onload = function () {
 		}
 	}
 	//textarea输入高亮以及字数提示
-	var otextarea = document.getElementsByTagName('textarea');
+	var otextarea = document.getElementById('remarks');
+	var i_textarea = document.getElementsByTagName('i')[0];
+	var max_textarea = otextarea.getAttribute('maxlength');
+
 	for (var i = 0; i < otextarea.length; i++) {
 		otextarea[i].onfocus = function () {
 			this.select();
@@ -190,6 +191,12 @@ window.onload = function () {
 		}
 		otextarea[i].onblur = function () {
 			this.className = "";
+		}
+	}
+	otextarea.oninput = otextarea.onpropertychange = function (e) {
+		var len = String(this.value).replace('^\x00-\xff','aa').length;
+		if (len <= max_textarea) {
+			i_textarea.innerHTML = max_textarea - len;
 		}
 	}
 	//动态“婚姻”二级下拉菜单，代码有待完善，应该具有自适应性。

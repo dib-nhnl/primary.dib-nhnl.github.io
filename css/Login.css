@@ -136,7 +136,7 @@ body{
 	border-radius: 8px;
 	width: 315px;
 }
-#left_wrap p{
+#left_wrap div{
 	clear: both;
 	line-height: 1.8em;
 	font-weight: bold;
@@ -151,14 +151,14 @@ body{
 #formL #e_mail input{
 	width: 240px;
 }
-#left_wrap p .span_r{
+#left_wrap div .span_r{
 	font-weight: normal;
 	float: right;
 }
 #left_wrap i{
 	font-weight: bold;
 }
-#left_wrap p textarea{
+#left_wrap div textarea{
 	width: 240px;
 	height: 160px;
 	resize: none;
