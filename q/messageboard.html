@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>留言板 & AJAX & 滚动</title>
+</head>
+<style>
+	body{
+		padding: 20px 0 0 0;
+		margin: 0;
+	}
+	#welcome{
+		margin-right: 20px;
+		margin-left: 20px;
+		margin-bottom: 20px;
+		border: 1px solid black;
+	}
+	#message_in{
+		float: left;		
+		margin-left: 20px;
+	}
+	#message_in div{
+		margin-bottom: 5px;
+	}
+	#message_show{		
+		padding: 10px;
+		margin-right: 20px;
+		margin-left: 350px;
+		height: 500px;
+		border: 5px solid black;
+	}
+	#username{
+		width: 15em;
+	}
+	#message_board{
+		vertical-align: top;
+		max-width: 20em;
+		max-height: 410px;
+		min-width: 200px;
+		min-height: 150px;
+	}
+	#buttons{
+		text-align: center;
+	}
+</style>
+<body>
+	<div>
+		<p id="welcome">time & welcome</p>
+	</div>
+	<div>
+		<div id="message_in">
+			<form action="">
+				<div>
+					<label for="username">大名：</label>
+					<input class="txt" id="username" type="text" value="" maxlength="20" />
+				</div>
+				<div>
+					<label for="message_board">留言：</label>
+					<textarea name="message_board" id="message_board" cols="30" rows="10" placeholder=""></textarea>
+				</div>
+				<div>
+					<p id="buttons">
+						<input class="btn" id="button1" type="submit" value="确认" />
+						<input class="btn" id="button2" type="reset" value="取消" />
+					</p>
+				</div>
+			</form>
+		</div>
+		<div id="message_show">
+			111111111111
+		</div>
+	</div>
+	
+	
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			// 定义2个变量记录用户名以及留言的上次内容，1个变量用于逻辑判断，用于防止重复输入
+			var name = null,
+				msg = null;
+			$('form')[0].on('submit', function () {
+				var $name = $('#username'),
+					$msg = $('#message_board');
+				if (name === $name.val() && msg === $msg.val()) {
+				// 阻止重复输入
+					return false;
+				} else if ($name.val() === "" || $msg.val() === "") {
+				// 阻止空输入
+					alert("您的大名和想说的话缺一不可。");
+					return false;
+				} else {
+				// 提交内容，并且保存此次输入。
+					name = $name.val();
+					msg = $msg.val();
+				//以AJAX的方式发送信息。
+					SendMsg(name,msg);
+				}
+			});
+		});
+		// 发送到服务器，成功则讲内容输出到右侧展示栏中，失败则弹出提示框。
+		function SendMsg(name,msg) {
+			$.ajax({
+				type:"POST",
+				url:"../p/message_board.php",
+				data:"action=SendMsg&d=" + new Date() + "&name=" + name + "&msg=" + msg,
+				success:function (data) {
+					if (data === "done") {
+						ShowMsg();
+						$name.val('');
+						$msg.val('');
+					} else{
+						alert("发送失败！");
+						return false;
+					}
+				}
+			});
+		}
+		function ShowMsg() {
+			$.ajax({
+				type:"POST",
+				url:"../p/message_board.php",
+				data:"action=ShowMsg&d=" + new Date() + "&name=" + name +
+			});
+		}
+	</script>
+</body>
+</html>

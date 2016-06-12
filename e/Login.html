@@ -12,8 +12,8 @@
 			<div id="left_wrap">
 				<form id="formL">
 					<div>
-						昵称：
-						<input type="text" name="nickname" />
+						<label for="nickname">昵称：</label>
+						<input id="nickname" type="text" />
 					</div>
 					<div>
 						性别：
@@ -34,8 +34,8 @@
 						<span id="marriage_detail"></span>
 					</div>
 					<div id="birth">
-						生日：
-						<input type="text" name="birth_year"/>
+						<label for="birth_year">生日：</label>
+						<input id="birth_year" type="text" name="birth_year"/>
 						<label>年</label>
 						<input type="number" min="1" max="12" name="birth_month" />
 						<label>月</label>
@@ -43,8 +43,8 @@
 						<label>日</label>
 					</div>
 					<div id="e_mail">
-						邮件：
-						<input type="text" name="e_mail" class="e_mail" />
+						<label for="mail">邮件：</label>
+						<input id="mail" type="text" name="mail" class="e_mail" />
 					</div>
 					<div>
 						爱好：
@@ -57,7 +57,7 @@
 						<input type="checkbox" name="interest" id="snooker" />
 						<label for="snooker">篮球</label>
 					</div>
-					<div>备注：
+					<div><label for="remarks">备注：</label>	
 					<textarea name="remarks" id="remarks" placeholder="这个人很懒，没留下什么" maxlength="200"></textarea>
 					<p><span class="span_r">备注还可以输入<i>200</i>&nbsp;字</span></p>
 					</div>
@@ -79,12 +79,12 @@
 				<form id="welcome_form">
 					<h2>用户登录</h3>
 					<p>
-						<label>用户名：</label>
-						<input type="text" value="" autofocus />
+						<label for="username">用户名：</label>
+						<input id="username" type="text" value="" autofocus />
 					</p>
 					<p>
-						<label>密码：</label>
-						<input type="password" value="" />
+						<label for="password">密码：</label>
+						<input id="password" type="password" value="" />
 					</p>
 					<p id="welcome_btn_p">
 						<input type="submit" value="登录" id="mid_submit" />
@@ -118,6 +118,7 @@
 					<li>防止表单按钮重复操作</li>
 					<li>中表单添加css变动效果</li>
 					<li>两按钮添加动画效果并关联两侧页面</li>
+					<li>通过label标签增加易用性</li>
 				</ul>
 				to be continued…
 				<ul>
