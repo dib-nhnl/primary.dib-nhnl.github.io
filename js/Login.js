@@ -77,7 +77,7 @@ window.onload = function () {
 		mid_btn_r.style.display = mid_btn_l.style.display = "block";
 		mid_warn.innerHTML = "<p>登录成功！</p><p>点击上方两侧按钮可开关其他界面</p><p>开启一个按钮前请先关闭另一个</p>";
 	}
-	
+	// 左右按钮功能
 	var l_cur_top = null, l_final_top = null;
 	var r_cur_top = null, r_final_top = null;
 	var speed = null;
