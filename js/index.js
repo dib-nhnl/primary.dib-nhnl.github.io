@@ -10,6 +10,10 @@ var contentData = [
 		{title: '登录界面', url: 'e/Login.html'},
 	],
 	[
+		{title: 'jQuery'},
+		{title: '表格', url: 'q/table.html'},
+	],
+	[
 		{title: 'Bootstrap'},
 		{title: '简单排版', url: 'b/flash.html'},
 	]

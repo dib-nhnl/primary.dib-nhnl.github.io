@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<title>ÁôÑÔ°å & AJAX & ¹ö¶¯</title>
+	<title>ç•™è¨€æ¿ & AJAX & æ»šåŠ¨</title>
 </head>
 <style>
 	body{
@@ -25,7 +25,7 @@
 	#message_show{		
 		padding: 10px;
 		margin-right: 20px;
-		margin-left: 350px;
+		margin-left: 370px;
 		height: 500px;
 		border: 5px solid black;
 	}
@@ -50,20 +50,21 @@
 	<div>
 		<div id="message_in">
 			<form action="">
-				<div>
-					<label for="username">´óÃû£º</label>
-					<input class="txt" id="username" type="text" value="" maxlength="20" />
-				</div>
-				<div>
-					<label for="message_board">ÁôÑÔ£º</label>
-					<textarea name="message_board" id="message_board" cols="30" rows="10" placeholder=""></textarea>
-				</div>
-				<div>
-					<p id="buttons">
-						<input class="btn" id="button1" type="submit" value="È·ÈÏ" />
-						<input class="btn" id="button2" type="reset" value="È¡Ïû" />
-					</p>
-				</div>
+				<fieldset>
+					<legend>ç•…æ‰€æ¬²è¨€ï¼š</legend>
+					<div>
+						<label>å¤§åï¼š<input class="txt" id="username" type="text" value="" maxlength="20" /></label>
+					</div>
+					<div>
+						<label>ç•™è¨€ï¼š<textarea name="message_board" id="message_board" cols="30" rows="10" placeholder=""></textarea></label>
+					</div>
+					<div>
+						<p id="buttons">
+							<input class="btn" id="button1" type="submit" value="ç¡®è®¤" />
+							<input class="btn" id="button2" type="reset" value="å–æ¶ˆ" />
+						</p>
+					</div>
+				</fieldset>
 			</form>
 		</div>
 		<div id="message_show">
@@ -75,29 +76,29 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script>
 		$(function () {
-			// ¶¨Òå2¸ö±äÁ¿¼ÇÂ¼ÓÃ»§ÃûÒÔ¼°ÁôÑÔµÄÉÏ´ÎÄÚÈİ£¬1¸ö±äÁ¿ÓÃÓÚÂß¼­ÅĞ¶Ï£¬ÓÃÓÚ·ÀÖ¹ÖØ¸´ÊäÈë
+			// å®šä¹‰2ä¸ªå˜é‡è®°å½•ç”¨æˆ·åä»¥åŠç•™è¨€çš„ä¸Šæ¬¡å†…å®¹ï¼Œ1ä¸ªå˜é‡ç”¨äºé€»è¾‘åˆ¤æ–­ï¼Œç”¨äºé˜²æ­¢é‡å¤è¾“å…¥
 			var name = null,
 				msg = null;
 			$('form')[0].on('submit', function () {
 				var $name = $('#username'),
 					$msg = $('#message_board');
 				if (name === $name.val() && msg === $msg.val()) {
-				// ×èÖ¹ÖØ¸´ÊäÈë
+				// é˜»æ­¢é‡å¤è¾“å…¥
 					return false;
 				} else if ($name.val() === "" || $msg.val() === "") {
-				// ×èÖ¹¿ÕÊäÈë
-					alert("ÄúµÄ´óÃûºÍÏëËµµÄ»°È±Ò»²»¿É¡£");
+				// é˜»æ­¢ç©ºè¾“å…¥
+					alert("æ‚¨çš„å¤§åå’Œæƒ³è¯´çš„è¯ç¼ºä¸€ä¸å¯ã€‚");
 					return false;
 				} else {
-				// Ìá½»ÄÚÈİ£¬²¢ÇÒ±£´æ´Ë´ÎÊäÈë¡£
+				// æäº¤å†…å®¹ï¼Œå¹¶ä¸”ä¿å­˜æ­¤æ¬¡è¾“å…¥ã€‚
 					name = $name.val();
 					msg = $msg.val();
-				//ÒÔAJAXµÄ·½Ê½·¢ËÍĞÅÏ¢¡£
+				//ä»¥AJAXçš„æ–¹å¼å‘é€ä¿¡æ¯ã€‚
 					SendMsg(name,msg);
 				}
 			});
 		});
-		// ·¢ËÍµ½·şÎñÆ÷£¬³É¹¦Ôò½²ÄÚÈİÊä³öµ½ÓÒ²àÕ¹Ê¾À¸ÖĞ£¬Ê§°ÜÔòµ¯³öÌáÊ¾¿ò¡£
+		// å‘é€åˆ°æœåŠ¡å™¨ï¼ŒæˆåŠŸåˆ™è®²å†…å®¹è¾“å‡ºåˆ°å³ä¾§å±•ç¤ºæ ä¸­ï¼Œå¤±è´¥åˆ™å¼¹å‡ºæç¤ºæ¡†ã€‚
 		function SendMsg(name,msg) {
 			$.ajax({
 				type:"POST",
@@ -109,7 +110,7 @@
 						$name.val('');
 						$msg.val('');
 					} else{
-						alert("·¢ËÍÊ§°Ü£¡");
+						alert("å‘é€å¤±è´¥ï¼");
 						return false;
 					}
 				}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>表格</title>
+</head>
+<style>
+	body{
+		padding: 0;
+		margin: 0;
+	}
+	.wrap{
+		padding-top: 50px;
+		padding-right: 30px;
+		padding-left: 30px;
+	}
+	.entry{
+		margin-bottom: 20px;
+	}
+	.table{
+		border-collapse: collapse;
+	}
+	.table tr,th,td{
+		border: 1px solid #ccc;
+	}
+	.table th,td{
+		min-width: 100px;
+		text-align: center;
+	}
+</style>
+<body>
+	<div class="wrap">
+		<div class="entry">
+			<label>列1：<input class="txt" id="td1" type="text" /></label>
+			<label>列2：<input class="txt" id="td2" type="text" /></label>
+			<button id="add">ADD</button>
+		</div>
+		<div>
+			<table class="table" id="table1">
+				<tr>
+					<th>第一列</th>
+					<th>第二列</th>
+					<th>第三列</th>
+				</tr>
+				<tr>
+					<td>文本框输入内容</td>
+					<td>点击add添加扩充表格</td>
+					<td><a class="del_btn" href="javascript:;">删除</a></td>
+				</tr>
+				<tr>
+					<td>点击右侧删除本行</td>
+					<td>淡出之后再删除</td>
+					<td><a class="del_btn" href="javascript:;">删除</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			$('#add').on('click',function () {
+				var $td1 = $('#td1'),
+					$td2 = $('#td2');
+				var td1 = $td1.val(),
+					td2 = $td2.val();
+				$('<tr><td>' + td1 + '</td><td>' + td2 + '</td><td><a class="del_btn" href="javascript:;">删除</a></td></tr>').appendTo('#table1');
+			});
+			$('.del_btn').on('click',function () {
+				var del_parent = $(this).parent().parent();
+				del_parent.fadeOut('slow',function () {
+					this.remove();
+				});
+			});
+		});
+	</script>
+</body>
+</html>
