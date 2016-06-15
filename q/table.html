@@ -13,6 +13,7 @@
 		padding-top: 50px;
 		padding-right: 30px;
 		padding-left: 30px;
+		margin-bottom: 50px;
 	}
 	.entry{
 		margin-bottom: 20px;
@@ -20,8 +21,17 @@
 	.table{
 		border-collapse: collapse;
 	}
+	.table tr:nth-child(even) {
+		background-color: rgba(0,30,10,0.2);
+	}
+	.table tr.yellow{
+		background-color: yellow;
+	}	
+	.table tr.green{
+		background-color: green;
+	}
 	.table tr,th,td{
-		border: 1px solid #ccc;
+		border: 1px solid black;
 	}
 	.table th,td{
 		min-width: 100px;
@@ -55,23 +65,60 @@
 			</table>
 		</div>
 	</div>
+	<hr />
+	<ul>
+		<li>表格的添加和动画</li>
+		<li>表格的删除和动画</li>
+		<li>表格的隔行异色</li>
+		<li>表格的悬停高亮</li>
+		<li>表格点击选中，再次点击取消选中</li>
+	</ul>
+	<p>to be continued：事件绑定需要优化</p>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script>
 		$(function () {
+			setDel();
+			setHover();
+			check();
 			$('#add').on('click',function () {
 				var $td1 = $('#td1'),
 					$td2 = $('#td2');
 				var td1 = $td1.val(),
 					td2 = $td2.val();
-				$('<tr><td>' + td1 + '</td><td>' + td2 + '</td><td><a class="del_btn" href="javascript:;">删除</a></td></tr>').appendTo('#table1');
+				$('<tr><td>' + td1 + '</td><td>' + td2 + '</td><td><a class="del_btn" href="javascript:;">删除</a></td></tr>').appendTo('#table1').hide().delay(80).fadeIn(800);
+				// 下面这句如果不加入就会不能实现功能，应该和on绑定事件的原理有关系，以后可以试试用bind来绑定看看
+				$('tr').off();
+				setDel();
+				setHover();
+				check();
 			});
+		});
+		function setDel() {
 			$('.del_btn').on('click',function () {
 				var del_parent = $(this).parent().parent();
 				del_parent.fadeOut('slow',function () {
 					this.remove();
 				});
 			});
-		});
+		}
+		function setHover() {
+			var $tr = $('tr:has(td)'); 
+			$tr.hover(function () {
+				$(this).addClass('yellow');
+			},function () {
+				$(this).removeClass('yellow');
+			});
+		}
+		function check() {
+			$('tr:has(td)').on('click',function () {
+				if ($(this).hasClass('green')) {
+					$(this).removeClass('green');
+				} else{
+					$(this).addClass('green');
+				}
+			});
+			
+		}
 	</script>
 </body>
 </html>

@@ -1,10 +1,10 @@
 var contentData = [
 	[
-		{title: 'GAME'},
+		{title: '随手练习'},
 		{title: '不安分的球', url: 'game/ball.html'},		
 	],
 	[
-		{title: '实例'},
+		{title: '原生JavaScript'},
 		{title: '覆盖、预览和换肤', url: 'e/style_tt.html'},
 		{title: '几种图片轮播', url: 'e/ppt.html'},
 		{title: '登录界面', url: 'e/Login.html'},
@@ -15,7 +15,7 @@ var contentData = [
 	],
 	[
 		{title: 'Bootstrap'},
-		{title: '简单排版', url: 'b/flash.html'},
+		{title: '介绍页面', url: 'b/flash.html'},
 	]
 ];
 var docForm = "";
