@@ -12,6 +12,7 @@ var contentData = [
 	[
 		{title: 'jQuery'},
 		{title: '表格', url: 'q/table.html'},
+		{title: '鼠标提示', url: 'q/tips.html'},
 	],
 	[
 		{title: 'Bootstrap'},

@@ -12,7 +12,12 @@
 	}
 	li{
 		float: left;
-		width: 20%;
+		height: 50px;
+		list-style: none;
+		margin-right: 5px;
+	}
+	img{
+		height: 100%;
 	}
 	.clearfix:after{
 		content: "";
@@ -32,17 +37,19 @@
 	<div class="wrap clearfix">
 		<p>图片上大图显示</p>
 		<ul>
-			<li><img src="" alt="1" /></li>
-			<li><img src="" alt="2" /></li>
-			<li><img src="" alt="3" /></li>
-			<li><img src="" alt="4" /></li>
+			<li><a href="../images/tips_1.jpg" title="生肖鸡" ><img src="../images/tips_1.jpg" alt="1" /></a></li>
+			<li><a href="../images/tips_2.jpg" title="生肖鼠" ><img src="../images/tips_2.jpg" alt="2" /></a></li>
+			<li><a href="../images/tips_3.jpg" title="生肖兔" ><img src="../images/tips_3.jpg" alt="3" /></a></li>
+			<li><a href="../images/tips_4.jpg" title="生肖马" ><img src="../images/tips_4.jpg" alt="4" /></a></li>
 		</ul>
 	</div>
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js" ></script>
 	<script>
 		$(function () {
 			var x = 15,
 				y = 25;
+// 鼠标提示
 			$('a.tooltip').mouseover(function (e) {
 				this.myTitle = this.title;
 				this.title = "";
@@ -62,6 +69,32 @@
 				$('#tooltip').remove();
 			}).mousemove(function (ev) {
 				$('#tooltip').css({
+					"top": (ev.pageY + y) + "px",
+					"left": (ev.pageX + x) + "px"
+				});
+			});
+// 大图
+			$('a').has('img').mouseover(function (e) {
+				this.myHref = this.href;
+				this.myTitle = this.title;
+				this.title = "";
+				var imgTitle = "<br />" + this.myTitle;
+				var bigImg = "<div id='bigImg'><img src='" + this.myHref + "' />" + imgTitle +"</div>";
+				$('body').append(bigImg);
+				$('#bigImg').css({
+					"width": "250px",
+					"height": "300px",
+					"position": "absolute",
+					"border": "1px solid #ccc",
+					"border-radius": "3px",
+					"top": (e.pageY + y) + "px",
+					"left": (e.pageX + x) + "px"
+				});
+			}).mouseout(function () {
+				this.title = this.myTitle;
+				$('#bigImg').remove();
+			}).mousemove(function (ev) {
+				$('#bigImg').css({
 					"top": (ev.pageY + y) + "px",
 					"left": (ev.pageX + x) + "px"
 				});
