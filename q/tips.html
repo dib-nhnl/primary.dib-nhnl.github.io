@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>鼠标提示title和大图</title>
+</head>
+<style>
+	.wrap{
+		margin: 20px;
+		padding: 10px;
+		border: 1px solid #ccc;
+	}
+	li{
+		float: left;
+		width: 20%;
+	}
+	.clearfix:after{
+		content: "";
+		display: table;
+		clear: both;
+	}
+	.clearfix {
+		*zoom:1;
+	}
+	
+</style>
+<body>
+	<div class="wrap">
+		<p><a class="tooltip" title="这是提示" href="anotherpage.html">鼠标跟随提示提升可用性</a></p>
+		<p><a href="anotherpage.html" title="这是默认提示">默认提示不跟随、出现慢</a></p>
+	</div>
+	<div class="wrap clearfix">
+		<p>图片上大图显示</p>
+		<ul>
+			<li><img src="" alt="1" /></li>
+			<li><img src="" alt="2" /></li>
+			<li><img src="" alt="3" /></li>
+			<li><img src="" alt="4" /></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js" ></script>
+	<script>
+		$(function () {
+			var x = 15,
+				y = 25;
+			$('a.tooltip').mouseover(function (e) {
+				this.myTitle = this.title;
+				this.title = "";
+				var tooltip = "<div id='tooltip'>" + this.myTitle + "</div>";
+				$('body').append(tooltip);
+				$('#tooltip').css({
+					"position": "absolute",
+					"border": "1px solid #ccc",
+					"border-radius": "3px",
+					"padding": "4px",
+					"background-color": "#fff",
+					"top": (e.pageY + y) + "px",
+					"left": (e.pageX + x) + "px"
+				});
+			}).mouseout(function () {
+				this.title = this.myTitle;
+				$('#tooltip').remove();
+			}).mousemove(function (ev) {
+				$('#tooltip').css({
+					"top": (ev.pageY + y) + "px",
+					"left": (ev.pageX + x) + "px"
+				});
+			});
+		})
+	</script>
+</body>
+</html>
