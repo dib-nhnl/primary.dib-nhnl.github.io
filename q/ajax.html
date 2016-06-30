@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>AJAX</title>
+</head>
+<body>
+<!-- load方法 -->
+	<div id="for_load" ><button id="load_btn">点击使用load方法加载html内容</button></div>
+
+
+
+<!-- 脚本部分 -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script>
+		$(function () {
+			var $for_load = $('#for_load');
+			$('#load_btn').click(function () {
+				$('#for_load').load('content.html .load_content', function (responseText) {
+					alert('载入结束，内容来自：\n' + responseText);
+				});
+				this.remove();
+			});
+		});
+	</script>
+</body>
+
+</html>
